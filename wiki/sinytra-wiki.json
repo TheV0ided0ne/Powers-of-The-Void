@@ -2,9 +2,6 @@
   "schema": "1",
   "id": "the-voided-one",
   "modid": "tvo",
-  "platforms": {
-    "modrinth": "the-voided-one"
-  },
   "owners": [ "thev0ided0ne" ],
   "versions": {
     "1.20.1": "main"
