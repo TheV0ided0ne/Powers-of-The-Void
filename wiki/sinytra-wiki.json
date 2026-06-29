@@ -2,6 +2,9 @@
   "schema": "1",
   "id": "the-voided-one",
   "modid": "tvo",
+  "platforms": {
+    "modrinth": "https://modrinth.com/mod/powers-of-the-void"
+  },
   "owners": [ "thev0ided0ne" ],
   "versions": {
     "1.20.1": "main"
