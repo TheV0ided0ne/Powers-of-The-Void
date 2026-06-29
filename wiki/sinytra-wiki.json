@@ -1,0 +1,17 @@
+{
+  "schema": "1",
+  "id": "the-voided-one",
+  "modid": "tvo",
+  "platforms": {
+    "modrinth": "the-voided-one"
+  },
+  "owners": [ "voidedva" ],
+  "versions": {
+    "1.20.1": "main"
+  },
+  "licenses": {
+    "project": {
+      "name": "All Rights Reserved"
+    }
+  }
+}
