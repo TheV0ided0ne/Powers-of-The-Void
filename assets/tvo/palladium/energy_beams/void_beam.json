@@ -1,0 +1,11 @@
+{
+    "type": "palladium:laser",
+    "glow_color": "#6C3391",
+    "core_color": "#9B4FCC",
+    "body_part": "right_arm",
+    "glow_opacity": 1.0,
+    "core_opacity": 1.0,
+    "bloom": 3,
+    "size": 1.5,
+    "rotation_speed": 3.0
+}

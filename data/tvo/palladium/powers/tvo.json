@@ -1,0 +1,281 @@
+{
+  "name": "The Voided One",
+  "background": "minecraft:textures/block/crying_obsidian.png",
+  "icon": "minecraft:crying_obsidian",
+  "persistant_data": true,
+
+  "energy_bars": {
+    "void_essence": {
+      "color": "#6C3391",
+      "min": 0,
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Void.Essence",
+        "fallback": 0
+      }
+    },
+    "decay": {
+      "color": "#361B4A",
+      "min": 0,
+      "max": 100,
+      "synced_value": {
+        "type": "score",
+        "objective": "Decay.Meter",
+        "fallback": 0
+      }
+    }
+  },
+
+  "abilities": {
+    "Voided": {
+      "type": "palladium:dummy",
+      "icon": "minecraft:crying_obsidian",
+      "title": "The Voided One",
+      "bar_color": "purple",
+      "hidden": false,
+      "hidden_in_bar": true,
+      "list_index": -1,
+      "description": "You have been infused with The Void and shall become a mighty legend!",
+      "first_tick_commands": [
+        "scoreboard objectives add Void.Essence dummy 'Void Essence Meter'",
+        "scoreboard objectives add Decay.Meter dummy 'Decay Meter'"
+      ]
+    },
+    "Absorb_Amethyst": {
+      "type": "palladium:command",
+      "icon": "minecraft:amethyst_shard",
+      "title": "Absorb Amethyst",
+      "bar_color": "purple",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 5,
+      "description": "Absorb amethyst shards to gain Void Essence but also gain decay as a negative.",
+      "commands": [
+        "clear @s minecraft:amethyst_shard 1",
+        "scoreboard players add @s Void.Essence 20",
+        "scoreboard players add @s Decay.Meter 15"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 1,
+            "cooldown": 20,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:item_in_slot",
+            "item": {
+              "item": "minecraft:amethyst_shard"
+            },
+            "slot": "mainhand"
+          }
+        ]
+      }
+    },
+    "Void_Infusion": {
+      "type": "palladium:command",
+      "icon": "minecraft:purple_concrete",
+      "title": "Void Infusion",
+      "bar_color": "purple",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 0,
+      "description": "Infuse yourself with void energy — gaining strength, speed and agility. Builds decay.",
+      "first_tick_commands": [
+        "scoreboard players add @s Decay.Meter 20",
+        "scoreboard players remove @s Void.Essence 20"
+      ],
+      "commands": [
+        "effect give @s minecraft:strength 1 1 true",
+        "effect give @s minecraft:speed 1 1 true",
+        "effect give @s minecraft:jump_boost 1 1 true"
+      ],
+
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 300,
+            "cooldown": 900,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:energy_bar",
+            "energy_bar": "void_essence",
+            "min": 30
+          }
+        ]
+      }
+    },
+
+    "VoidBeam": {
+      "type": "palladium:energy_beam",
+      "icon": "minecraft:end_rod",
+      "title": "Void Beam",
+      "bar_color": "purple",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 1,
+      "description": "Project a sustained beam of void energy.",
+      "energy_beam": "tvo:void_beam",
+      "damage": 10.0,
+      "max_distance": 60.0,
+      "speed": 0.5,
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:held",
+            "cooldown": 0,
+            "key_type": "key_bind",
+            "needs_empty_hand": false
+          },
+          {
+            "type": "palladium:energy_bar",
+            "energy_bar": "void_essence",
+            "min": 5
+          }
+        ]
+      }
+    },
+    "VoidBeamDrain": {
+      "type": "palladium:command",
+      "title": "null",
+      "list_index": -1,
+      "hidden": true,
+      "hidden_in_bar": true,
+      "description": "null",
+      "commands": [
+        "execute if entity @s run scoreboard players remove @s Void.Essence 4",
+        "execute if entity @s run scoreboard players add @s Decay.Meter 1"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "VoidBeam"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 8
+          }
+        ]
+      }
+    },
+    "VoidRift": {
+      "type": "palladium:command",
+      "title": "Void Rift",
+      "icon": "minecraft:end_crystal",
+      "description": "Slash a rift into The Void and teleport to where you wish to look at.",
+      "list_index": 2,
+      "first_tick_commands": [
+        "particle minecraft:witch ~ ~ ~ 1 1 1 1 50 normal",
+        "playsound minecraft:entity.enderman.teleport player @s[distance=..5] ~ ~ ~ 0.5 2",
+        "function tvo:teleport"
+      ],
+      "last_tick_commands": [
+        "particle minecraft:witch ~ ~ ~ 1 1 1 1 50 normal",
+        "playsound minecraft:entity.enderman.teleport player @s[distance=..5] ~ ~ ~ 0.5 2"
+      ],
+      "commands": [
+        "particle minecraft:witch ~ ~ ~ 1 1 1 1 50 normal"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 1,
+            "cooldown": 20,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:energy_bar",
+            "energy_bar": "void_essence",
+            "min": 30
+          }
+        ]
+      }
+    },
+    "DreadedFlight": {
+      "type": "palladium:attribute_modifier",
+      "title": "Dreaded Flight",
+      "description": "You are able to fly to your hearts will.",
+      "icon": "minecraft:elytra",
+      "hiiden_in_bar": true,
+      "attribute": "palladium:flight_speed",
+      "amount": 1.5,
+      "operation": 0
+    },
+    "cool_flight": {
+      "type": "palladium:attribute_modifier",
+      "hidden": true,
+      "hidden_in_bar": true,
+      "attribute": "palladium:heroic_flight_type",
+      "amount": 1,
+      "operation": 0
+    },
+    "ReaperForm": {
+      "type": "palladium:command",
+      "title": "Reaper Form",
+      "description": "You are able to transform into a reaper temporarily, decaying void essence and also stablizing yourself and reducing decay",
+      "icon": "minecraft:ender_eye",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 4,
+      "first_tick_commands": [
+        "attribute @s minecraft:generic.armor base set 30"
+      ],
+      "last_tick_commands": [
+        "attribute @s minecraft:generic.armor base set 0"
+      ],
+      "commands": [],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:activation",
+            "ticks": 600,
+            "cooldown": 600,
+            "key_type": "key_bind"
+          },
+          {
+            "type": "palladium:energy_bar",
+            "energy_bar": "void_essence",
+            "min": 10
+          }
+        ]
+      }
+    },
+    "ReaperFormDrain": {
+      "type": "palladium:command",
+      "title": "null",
+      "description": "null",
+      "icon": "minecraft:ender_eye",
+      "hidden": false,
+      "hidden_in_bar": false,
+      "list_index": 5,
+      "first_tick_commands": [],
+      "last_tick_commands": [],
+      "commands": [
+        "execute if entity @s run scoreboard players remove @s Void.Essence 1",
+        "execute if entity @s run scoreboard players remove @s Decay.Meter 2"
+      ],
+      "conditions": {
+        "enabling": [
+          {
+            "type": "palladium:ability_enabled",
+            "power": "null",
+            "ability": "ReaperForm"
+          },
+          {
+            "type": "palladium:interval",
+            "active_ticks": 0,
+            "disabled_ticks": 8
+          }
+        ]
+      }
+    }
+  }
+}

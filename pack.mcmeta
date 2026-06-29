@@ -1,0 +1,16 @@
+{
+  "pack": {
+    "id": "tvo",
+    "description": "Become The Voided One from 'Into The Multiverse'",
+    "pack_format": 15,
+    "version": "1.0.0"
+  },
+  "dependencies": {
+    "common": {
+    },
+    "fabric": {
+    },
+    "forge": {
+    }
+  }
+}

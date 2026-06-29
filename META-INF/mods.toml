@@ -1,0 +1,21 @@
+modLoader = 'lowcodefml'
+showAsResourcePack = false
+loaderVersion="[47,)"
+license="All rights reserved"
+
+[[mods]]
+modId="tvo"
+displayName="The Voided One"
+version="1.0.0"
+logoFile = "logo.png"
+logoBlur = false
+description='''
+Become The Voided One from "Into The Multiverse"
+'''
+
+[[dependencies.tvo]]
+modId = "palladium"
+mandatory = true
+versionRange = ">=4.5.6"
+ordering = "NONE"
+side = "BOTH"

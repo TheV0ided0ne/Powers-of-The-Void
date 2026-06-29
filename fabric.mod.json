@@ -1,0 +1,11 @@
+{
+    "schemaVersion": 1,
+    "authors": [],
+    "environment": "*",
+    "name": "The Voided One",
+    "id": "tvo",
+    "version": "1.0.0",
+    "description": "Become The Voided One from 'Into The Multiverse'",
+    "icon": "logo.png",
+    "license": "All rights reserved"
+}
