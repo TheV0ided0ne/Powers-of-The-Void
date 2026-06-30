@@ -8,5 +8,10 @@
   "owners": [ "thev0ided0ne" ],
   "versions": {
     "1.20.1": "main"
+  },
+  "licenses": {
+    "project": {
+      "id": "MIT"
+    }
   }
 }
