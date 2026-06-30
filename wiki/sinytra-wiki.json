@@ -1,17 +1,8 @@
 {
   "schema": "1",
-  "id": "the-voided-one",
-  "modid": "tvo",
+  "id": "powers-of-the-void",
   "platforms": {
-    "curseforge": "powers-of-the-void"
-  },
-  "owners": [ "thev0ided0ne" ],
-  "versions": {
-    "1.20.1": "main"
-  },
-  "licenses": {
-    "project": {
-      "id": "MIT"
-    }
+    "curseforge": "powers-of-the-void",
+    "modrinth": "powers-of-the-void"
   }
 }
