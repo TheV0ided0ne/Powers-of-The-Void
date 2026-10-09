@@ -199,6 +199,11 @@
             <p>Veyron, The Voidwalker, he was forced to be torn limb from limb even losing his eye, that includes his right leg and arm. 
                 He was imbued with the powers of The Void and was able to conjure Void Essence that was able to destroy entire worlds to his pleasure, 
                 but he only had the desire of good within his heart, despite his mistakes he would make in the future and the carnage he would unleash upon the world. But despite that all, he is of purest intent.</p>
+            <p>Florian Dragonheart, The Sin of Wrath, he was forced to adapt to his new life as a fae and eventually learned magic within his school. Eventually he met his wife, Kamila, who eventually birthed his child, Silas, after he had turned 240
+                Despite his need to adapt and his great life, he was not safe for long as a call had echoed out from The Void, his brother, Veyron Dragonheart, was soon to return to his side.</p>
+            <p>Shiori Dragonheart, The Guardian of The Heavens, she was forced to carry her life as an outcast and was eventually captured by demons, only to be nearly sacrificed by them all and saved by an angel, but it was too late.
+                She had become part demon, and part angel thanks to the angel who saved her. The angel carried her to the heavens as she was weak from the ritual and was brought back to health in the heavens.
+                After some time, and spending years in the heavens, she finally had rose up the ranks to become the Guardian of The Heavens to guard her fellow citizens!</p>
             
         </div>
 
@@ -219,15 +224,15 @@
         const voidRegex = new RegExp(`\\b(${voidPattern})\\b`, 'g');
 
         // 2. Process Dragonheart phrases second
-        const dhPhrases = ['Dragonheart', 'Florian', 'Wrath'];
+        const dhPhrases = ['Dragonheart', 'Florian', 'Wrath', 'wrath'];
         const dhPattern = dhPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
         const dhRegex = new RegExp(`\\b(${dhPattern})\\b`, 'g');
 
-        const angelicPhrases = ['Shiori', 'Angel', 'Heaven', 'Heavens'];
+        const angelicPhrases = ['Shiori', 'Angel', 'Heaven', 'Heavens', 'heavens', 'angel'];
         const angelicPattern = angelicPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
         const angelicRegex = new RegExp(`\\b(${angelicPattern})\\b`, 'g');
 
-        const vampiricPhrases = ['Varelt', 'Ashe Vale', 'Blood', 'Unholy'];
+        const vampiricPhrases = ['Varelt', 'Ashe Vale', 'Blood', 'Unholy', 'unholy', 'blood'];
         const vampiricPattern = vampiricPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
         const vampiricRegex = new RegExp(`\\b(${vampiricPattern})\\b`, 'g');
         
