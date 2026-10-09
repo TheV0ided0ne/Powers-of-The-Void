@@ -1,0 +1,243 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>POTV - Origins</title>
+	<style>
+	html, body {
+	background: black;
+	color: white;
+	margin: 0;
+	padding: 0;
+	font-family: 'Segoe UI', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
+
+	header {
+	text-align: center;
+	padding: 30px 20px;
+	background: linear-gradient(180deg, #181124 0%, #0d0a12 100%) ;
+	border-bottom: 1px solid #321f47;
+	}
+
+	h1 {
+	margin: 0;
+	font-size: 2.5rem;
+	letter-spacing: 1px;
+	text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+	}
+
+	.void-text {
+	color: purple;
+	font-weight: bold;
+	text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+	}
+
+	.dragonheart-text {
+	color: orangered;
+	font-weight: bold;
+	text-shadow: 0 0 15px rgba(225, 59, 15, 0.8);
+	}
+
+	.angelic-text {
+	color: white;
+	font-weight: bold;
+	text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+	}
+
+	.vampiric-text {
+	color: red;
+	font-weight: bold;
+	text-shadow: 0 0 15px rgba(225, 0, 0, 0.8);
+	}
+
+	.shadow-text {
+	color: black;
+	font-weight: bold;
+	text-shadow: 0 0 15px rgb(0, 0, 0);
+	}
+	
+	.wiki-container {
+	display: flex;
+	max-width: 1200px;
+	margin: 40px auto;
+	background: #130f1c;
+	border: 1px solid #2d223c;
+	border-radius: 8px;
+	overflow: hidden;
+	box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+	}
+
+	.wiki-container input[type="radio"] {
+	display: none;
+	}
+
+	.sidebar {
+	display: flex;
+	flex-direction: column;
+	width: 220px;
+	background: #181225;
+	border-right: 1px solid #2d223c;
+	}
+
+	.tab-button {
+	display: block;
+	padding: 18px 20px;
+	color: #9a8fa8;
+	font-weight: 600;
+	cursor: pointer;
+	border-bottom: 1px solid #231a33;
+	transition: all 0.3s ease;
+	}
+
+	.tab-button:hover {
+	background: #231a34;
+	color: #e0dced;
+	padding-left: 25px;
+	}
+
+	.tab-content {
+	display: none;
+	flex: 1;
+	padding: 40px;
+	line-height: 1.6;
+	}
+
+	#tab-origins-list:checked ~ .sidebar [for="tab-origins-list"],
+	#tab-void:checked ~ .sidebar [for="tab-void"] {
+	background: #2a1b40;
+	color: #c084fc;
+	border-left: 4px solid #a855f7;
+	padding-left:25px;
+	}
+
+	#tab-origins-list:checked ~ #content-origins-list,
+	#tab-void:checked ~ #content-void {
+	display: block;
+	}
+
+	h2 {
+	color: white;
+	margin-top: 0;
+	border-bottom: 1px solid #3b2a54;
+	padding-bottom: 10px;
+	}
+
+	.origin-preview-img {
+	display: block;
+	margin: 20px 0;
+	border-radius: 6px;
+	border: 2px solid #a855f7;
+	box-shadow: 0 0 15px rgba(168, 85, 247, 0.4)
+	}
+
+	.wiki-link {
+	display: inline-block;
+	margin-top: 15px;
+	padding: 10px 20px;
+	background: #a855f7;
+	color: white;
+	text-decoration: none;
+	border-radius: 4px;
+	font-weight: bold;
+	transition: background 0.2s;
+	}
+
+	.wiki-link:hover {
+	background: white;
+	}
+	</style>
+</head>
+<body>
+    
+    <header>
+        <h1>Showcase of the origins!</h1>
+    </header>
+
+    <div class="wiki-container" id="wiki-root">
+        <input type="radio" id="tab-origins-list" name="wiki-tabs" checked>
+        <input type="radio" id="tab-void" name="wiki-tabs">
+        <input type="radio" id="tab-florian" name="wiki-tabs">
+        <input type="radio" id="tab-shiori" name="wiki-tabs">
+        <input type="radio" id="tab-varelt" name="wiki-tabs">
+        <input type="radio" id="tab-robert" name="wiki-tabs">
+        <input type="radio" id="tab-siphon" name="wiki-tabs">
+        <input type="radio" id="tab-deity-of-nature" name="wiki-tabs">
+        <input type="radio" id="tab-silas" name="wiki-tabs">
+        <input type="radio" id="tab-benjamin-saiph" name="wiki-tabs">
+        <input type="radio" id="tab-catastrophe" name="wiki-tabs">
+        <input type="radio" id="tab-zealot" name="wiki-tabs">
+
+        <div class="sidebar">
+            <label for="tab-origins-list" class="tab-button">Origins Overview</label>
+            <label for="tab-void" class="tab-button">Veyron Ashe Vale</label>
+            <label for="tab-florian" class="tab-button">Florian Dragonheart</label>
+            <label for="tab-shiori" class="tab-button">Shiori Dragonheart</label>
+            
+        </div>
+
+        <div id="content-origins-list" class="tab-content">
+            <h2>Origins Overview</h2>
+            <p>The origins will be quick listed here and will go over them all very briefly, 
+                more information is on the tabs to the left! This will also contain their biological lore, 
+                abilities and playstyles.</p>
+            <h3>The Siblings of The Void</h3>
+            <p>The Siblings of The Void refers to Veyron, Florian and Shiori. Three siblings that were taken away from their home planet 'Earth'
+                and were forced to be victims of the multiverse.</p>
+            <p>Veyron, The Voidwalker, he was forced to be torn limb from limb even losing his eye, that includes his right leg and arm. 
+                He was imbued with the powers of The Void and was able to conjure Void Essence that was able to destroy entire worlds to his pleasure, 
+                but he only had the desire of good within his heart, despite his mistakes he would make in the future and the carnage he would unleash upon the world. But despite that all, he is of purest intent.</p>
+            
+        </div>
+
+        <div id="content-void" class="tab-content">
+            <h2>Veyron Ashe Vale (Void)</h2>
+            <p>Veyron Ashe Vale also known as Void or Veyron Dragonheart -- is a sibling and original eldest of the Dragonhearts. He was known for his intense smarts and being the smartest within his family.</p>
+            <p>After landing in Syct' Vein, he died due to Zealot and Catastrophe and had lost his arm, leg and right eye. But this did not stop him as he continued onwards for revenge and balance of this world!</p>
+        </div>
+    </div>
+
+    <!-- One single script block handles all character words seamlessly -->
+    <script>
+        const targets = document.querySelectorAll('.tab-content, .sidebar');
+
+        // 1. Process Void-related phrases first
+        const voidPhrases = ['Veyron Ashe Vale', 'Veyron', 'Void', 'Voidwalker'];
+        const voidPattern = voidPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
+        const voidRegex = new RegExp(`\\b(${voidPattern})\\b`, 'g');
+
+        // 2. Process Dragonheart phrases second
+        const dhPhrases = ['Dragonheart', 'Florian', 'Wrath'];
+        const dhPattern = dhPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
+        const dhRegex = new RegExp(`\\b(${dhPattern})\\b`, 'g');
+
+        const angelicPhrases = ['Shiori', 'Angel', 'Heaven', 'Heavens'];
+        const angelicPattern = angelicPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
+        const angelicRegex = new RegExp(`\\b(${angelicPattern})\\b`, 'g');
+
+        const vampiricPhrases = ['Varelt', 'Ashe Vale', 'Blood', 'Unholy'];
+        const vampiricPattern = vampiricPhrases.map(p => p.replace(/[-\/\\^\$*+?.()|[\]{}]/g, '\\$&')).join('|');
+        const vampiricRegex = new RegExp(`\\b(${vampiricPattern})\\b`, 'g');
+        
+        // 3. Apply changes sequentially to avoid conflict
+        targets.forEach(container => {
+            let html = container.innerHTML;
+            
+            // Apply Void style
+            html = html.replace(voidRegex, match => `<span class="void-text">${match}</span>`);
+            
+            // Apply Dragonheart style
+            html = html.replace(dhRegex, match => `<span class="dragonheart-text">${match}</span>`);
+
+            // Apply Angelic style
+            html = html.replace(angelicRegex, match => `<span class="angelic-text">${match}</span>`);
+
+            // Apply Vampiric style
+            html = html.replace(vampiricRegex, match => `<span class="vampiric-text">${match}</span>`);
+            
+            container.innerHTML = html;
+        });
+    </script>
+    
+</body>
+</html>

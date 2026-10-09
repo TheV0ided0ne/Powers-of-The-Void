@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Powers of The Void</title>
+    <style>
+        html, body {
+            background: black;
+            color: white;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        header {
+            text-align: center;
+            padding: 30px 20px;
+            background: linear-gradient(180deg, #181124 0%, #0d0a12 100%);
+            border-bottom: 1px solid #321f47;
+        }
+
+        h1 {
+            margin: 0;
+            font-size: 2.5rem;
+            letter-spacing: 1px;
+            text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+        }
+
+        .void-text {
+            color: purple;
+            font-weight: bold;
+            text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+        }
+
+        .wiki-container {
+            display: flex;
+            max-width: 1200px;
+            margin: 40px auto;
+            background: #130f1c;
+            border: 1px solid #2d223c;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+        }
+
+        .wiki-container input[type="radio"] {
+            display: none;
+        }
+
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            width: 220px;
+            background: #181225;
+            border-right: 1px solid #2d223c;
+        }
+        
+        .tab-button {
+            display: block;
+            padding: 18px 20px;
+            color: #9a8fa8;
+            font-weight: 600;
+            cursor: pointer;
+            border-bottom: 1px solid #231a33;
+            transition: all 0.3s ease;
+        }
+
+        .tab-button:hover {
+            background: #231a34;
+            color: #e0dced;
+            padding-left: 25px;
+        }
+
+        .tab-content {
+            display: none;
+            flex: 1;
+            padding: 40px;
+            line-height: 1.6;
+        }
+
+        #tab-home:checked ~ .sidebar [for="tab-home"],
+        #tab-origins:checked ~ .sidebar [for="tab-origins"],
+        #tab-systems:checked ~ .sidebar [for="tab-systems"] {
+            background: #2a1b40;
+            color: #c084fc;
+            border-left: 4px solid #a855f7;
+            padding-left: 25px;
+        }
+
+        #tab-home:checked ~ #content-home,
+        #tab-origins:checked ~ #content-origins,
+        #tab-systems:checked ~ #content-systems {
+            display: block;
+        }
+
+        h2 {
+            color: #c084fc;
+            margin-top: 0;
+            border-bottom: 1px solid #3b2a54;
+            padding-bottom: 10px;
+        }
+
+        .origin-preview-img {
+            display: block;
+            margin: 20px 0;
+            border-radius: 6px;
+            border: 2px solid #a855f7;
+            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
+        }
+
+        .wiki-link {
+            display: inline-block;
+            margin-top: 15px;
+            padding: 10px 20px;
+            background: #a855f7;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: bold;
+            transition: background 0.2s;
+        }
+
+        .wiki-link:hover {
+            background: #c084fc;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Welcome to the wiki of <span class="void-text">Powers of The Void!</span></h1>
+    </header>
+
+    <div class="wiki-container">
+        <input type="radio" id="tab-home" name="wiki-tabs" checked>
+        <input type="radio" id="tab-origins" name="wiki-tabs">
+        <input type="radio" id="tab-systems" name="wiki-tabs">
+
+        <div class="sidebar">
+            <label for="tab-home" class="tab-button">Overview</label>
+            <label for="tab-origins" class="tab-button">The Origins</label>
+            <label for="tab-systems" class="tab-button">Systems & Weapons</label>
+        </div>
+
+        <div id="content-home" class="tab-content">
+            <h2>Project Overview</h2>
+            <p>This project is a massive origins project and mod containing over 10 origins. It features deep content architecture for every single path, built to completely transform your gameplay loop.</p>
+            <img class="origin-preview-img" src="./Images/Origins.jpeg" width="100" height="100" alt="Origins Orb">
+            <p>Ready to look into the specific variants? All the custom entries reside right here:</p>
+            <a class="wiki-link" href="origins.html">Explore Origins Wiki →</a>
+        </div>
+
+        <div id="content-origins" class="tab-content">
+            <h2>The Origins</h2>
+            <p>Information about the different character classes, their biological lore, and spatial void abilities will go here.</p>
+        </div>
+
+        <div id="content-systems" class="tab-content">
+            <h2>Progression Mechanics</h2>
+            <p>Every origin includes progression layers like custom level systems, ascensions, origin-specific weapons, and special combat proficiencies.</p>
+        </div>
+    </div>
+
+</body>
+</html>
