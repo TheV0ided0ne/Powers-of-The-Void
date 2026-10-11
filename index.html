@@ -5,125 +5,198 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Powers of The Void</title>
     <style>
-        html, body {
-            background: black;
-            color: white;
-            margin: 0;
-            padding: 0;
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        }
+        	html, body {
+		background: black;
+		color: white;
+		margin: 0;
+		padding: 0;
+		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	}
 
-        header {
-            text-align: center;
-            padding: 30px 20px;
-            background: linear-gradient(180deg, #181124 0%, #0d0a12 100%);
-            border-bottom: 1px solid #321f47;
-        }
+	header {
+		text-align: center;
+		padding: 30px 20px;
+		background: linear-gradient(180deg, #181124 0%, #0d0a12 100%);
+		border-bottom: 1px solid #321f47;
+	}
 
-        h1 {
-            margin: 0;
-            font-size: 2.5rem;
-            letter-spacing: 1px;
-            text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
-        }
+	h1 {
+		margin: 0;
+		font-size: 2.5rem;
+		letter-spacing: 1px;
+		text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
+	}
 
-        .void-text {
-            color: purple;
-            font-weight: bold;
-            text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
-        }
+	.void-text {
+		color: purple;
+		font-weight: bold;
+		text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
+	}
 
-        .wiki-container {
-            display: flex;
-            max-width: 1200px;
-            margin: 40px auto;
-            background: #130f1c;
-            border: 1px solid #2d223c;
-            border-radius: 8px;
-            overflow: hidden;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-        }
+	.dragonheart-text {
+		color: orangered;
+		font-weight: bold;
+		text-shadow: 0 0 15px rgba(225, 59, 15, 0.8);
+	}
 
-        .wiki-container input[type="radio"] {
-            display: none;
-        }
+	.angelic-text {
+		color: white;
+		font-weight: bold;
+		text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
+	}
 
-        .sidebar {
-            display: flex;
-            flex-direction: column;
-            width: 220px;
-            background: #181225;
-            border-right: 1px solid #2d223c;
-        }
-        
-        .tab-button {
-            display: block;
-            padding: 18px 20px;
-            color: #9a8fa8;
-            font-weight: 600;
-            cursor: pointer;
-            border-bottom: 1px solid #231a33;
-            transition: all 0.3s ease;
-        }
+	.demonic-text {
+		color: red;
+		font-weight: bold;
+		text-shadow: 0 0 15px rgba(225, 0, 0, 0.8);
+	}
 
-        .tab-button:hover {
-            background: #231a34;
-            color: #e0dced;
-            padding-left: 25px;
-        }
+	.nightmare-text {
+		color: black;
+		font-weight: bold;
+	}
 
-        .tab-content {
-            display: none;
-            flex: 1;
-            padding: 40px;
-            line-height: 1.6;
-        }
+	.nature-text {
+		color: green;
+		font-weight: bold;
+		text-shadow: 0 0 15px rgb(0, 255, 0);
+	}
 
-        #tab-home:checked ~ .sidebar [for="tab-home"],
-        #tab-origins:checked ~ .sidebar [for="tab-origins"],
-        #tab-systems:checked ~ .sidebar [for="tab-systems"] {
-            background: #2a1b40;
-            color: #c084fc;
-            border-left: 4px solid #a855f7;
-            padding-left: 25px;
-        }
+	.wiki-container {
+		display: flex;
+		max-width: 1200px;
+		margin: 40px auto;
+		background: #130f1c;
+		border: 1px solid #2d223c;
+		border-radius: 8px;
+		overflow: hidden;
+		box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+	}
 
-        #tab-home:checked ~ #content-home,
-        #tab-origins:checked ~ #content-origins,
-        #tab-systems:checked ~ #content-systems {
-            display: block;
-        }
+	.sidebar {
+		display: flex;
+		flex-direction: column;
+		width: 220px;
+		background: #181225;
+		border-right: 1px solid #2d223c;
+	}
 
-        h2 {
-            color: #c084fc;
-            margin-top: 0;
-            border-bottom: 1px solid #3b2a54;
-            padding-bottom: 10px;
-        }
+    .sub-tabs {
+        display: flex;
+        gap: 8px;
+        margin: 24px 0 16px;
+        flex-wrap: wrap;
+    }
+    
+    .sub-tab-button {
+        background: #1a1326;
+        color: #9a8fa8;
+        border: 1px solid #3b2a54;
+        padding: 8px 16px;
+        border-radius: 6px;
+        font: inherit;
+        cursor: pointer;
+        transition: all 0.2s ease;
+    }
 
-        .origin-preview-img {
-            display: block;
-            margin: 20px 0;
-            border-radius: 6px;
-            border: 2px solid #a855f7;
-            box-shadow: 0 0 15px rgba(168, 85, 247, 0.4);
-        }
+    .sub-tab-button:hover {
+        color: #e0dced;
+        border-color: #a855f7;
+    }
 
-        .wiki-link {
-            display: inline-block;
-            margin-top: 15px;
-            padding: 10px 20px;
-            background: #a855f7;
-            color: white;
-            text-decoration: none;
-            border-radius: 4px;
-            font-weight: bold;
-            transition: background 0.2s;
-        }
+    .sub-tab-button.active {
+        background: #2a1b40;
+        color: #c084fc;
+        border-color: #a855f7;
+    }
 
-        .wiki-link:hover {
-            background: #c084fc;
-        }
+    .sub-panel {
+        display: none;
+    }
+
+    .sub-panel.active {
+        display: block;
+    }
+
+    .level-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 12px 0 20px;
+        font-size: 0.95em;
+    }
+
+    .level-table th,
+    .level-table td {
+        border-bottom: 1px solid #2d223c;
+        padding: 8px 10px;
+        text-align: left;
+    }
+
+    .level-table th {
+        color: #c084fc;
+    }
+
+    .diff-up { color: #6fcf97; }
+    .diff-down {color: #eb5757; }
+
+	.tab-button {
+		display: block;
+		width: 100%;
+		box-sizing: border-box;
+		padding: 18px 20px;
+		background: none;
+		border: none;
+		border-bottom: 1px solid #231a33;
+		color: #9a8fa8;
+		font: inherit;
+		font-weight: 600;
+		text-align: left;
+		cursor: pointer;
+		transition: all 0.3s ease;
+	}
+
+	.tab-button:hover {
+		background: #231a34;
+		color: #e0dced;
+		padding-left: 25px;
+	}
+
+	.tab-button.active {
+		background: #2a1b40;
+		color: #c084fc;
+		border-left: 4px solid #a855f7;
+		padding-left: 25px;
+	}
+
+	.tab-content {
+		display: none;
+		flex: 1;
+		padding: 40px;
+		line-height: 1.6;
+	}
+
+	.tab-content.active {
+		display: block;
+	}
+
+	h2 {
+		color: white;
+		margin-top: 0;
+		border-bottom: 1px solid #3b2a54;
+		padding-bottom: 10px;
+	}
+
+    .wiki-link {
+        display: inline-block;
+        margin-top: 15px;
+        padding: 10px 20px;
+        background: #a855f7;
+        color: white;
+        text-decoration: none;
+        border-radius: 4px;
+        font-weight: bold;
+        transition: background 0.2s;
+    }
     </style>
 </head>
 <body>
@@ -133,34 +206,158 @@
     </header>
 
     <div class="wiki-container">
-        <input type="radio" id="tab-home" name="wiki-tabs" checked>
-        <input type="radio" id="tab-origins" name="wiki-tabs">
-        <input type="radio" id="tab-systems" name="wiki-tabs">
-
-        <div class="sidebar">
-            <label for="tab-home" class="tab-button">Overview</label>
-            <label for="tab-origins" class="tab-button">The Origins</label>
-            <label for="tab-systems" class="tab-button">Systems & Weapons</label>
-        </div>
-
-        <div id="content-home" class="tab-content">
-            <h2>Project Overview</h2>
-            <p>This project is a massive origins project and mod containing over 14 origins. It features insane origins all built with multiple systems created to completely transform your gameplay loop!</p>
-            <img class="origin-preview-img" src="./Images/Origins.jpeg" width="100" height="100" alt="Origins Orb">
-            <p>Ready to look into the origings and learn all the lore? All the custom entries reside right here:</p>
-            <a class="wiki-link" href="origins.html">Explore Origins Wiki →</a>
-        </div>
-
-        <div id="content-origins" class="tab-content">
-            <h2>The Origins</h2>
-            <p>Information about the different character classes, their biological lore, and spatial void abilities will go here.</p>
-        </div>
-
-        <div id="content-systems" class="tab-content">
-            <h2>Progression Mechanics</h2>
-            <p>Every origin includes progression layers like custom level systems, ascensions, origin-specific weapons, and special combat proficiencies.</p>
-        </div>
+        <div class="sidebar" id="sidebar"></div>
+        <div id="content"></div>
     </div>
+    <script>
+        // This is where the intro wiki resides.
+        const entries =[
+            {
+                id: 'introduction',
+                label: 'Wiki Introduction',
+                title: 'Wiki Introduction',
+                html: `
+                    <p>This project is a massive origins project and mod containing over 14 origins. It features insane origins all built with multiple systems created to completely transform your gameplay loop!</p>
+                    <p>This wiki will contain advancements, a leveling system and ascension system!</p>
+                    <img class="origin-preview-img" src="./Images/Origins.jpeg" width="100" height="100" alt="Origins Orb">
+                    <p>Ready to look into the origings and learn all the lore? All the custom entries reside right here and will explore on the origin lore, abilities, resources, passives and more!:</p>
+                    <a class="wiki-link" href="origins.html">Explore Origins Wiki</a>
+                `
+            },
+            {
+                id: 'origins',
+                label: 'The Origins',
+                title: 'The Origins',
+                html: `
+                    <h3>This will contain all the origins and short lore, more lore is inside of the origins wiki provided in the overview tab.</h3>
 
+                    <div class="sub-tabs">
+                        <button class="sub-tab-button active" data-sub="veyron">Veyron Ashe Vale</button>
+                        <button class="sub-tab-button" data-sub="florian">Florian Dragonheart</button>
+                        <button class="sub-tab-button" data-sub="shiori">Shiori Dragonheart</button>
+                        </div>
+
+                    <div class="sub-panel active" data-sub="veyron">
+                        <h4>Veyron Ashe Vale - The Voided One</h4>
+                        <p>A being of pure Void Essence and a being apart of the Dragonhearts family. Brother of Florian Dragonheart and Shiori Dragonheart.</p>
+                        <p>His playstyle revolves around careful casting of abilities to not decay quickly and die and also lifesteal enemies to maintain high health. A glass cannon that 
+                        has powerful regeneration capabilities.</p>
+
+
+
+                    </div>
+
+                    <div class="sub-panel" data-sub="florian">
+                        <h4>Florian Dragonheart - The Sin of Wrath</h4>
+                        <p>The Sin of Wrath, a being of flames, destruction and one to make a good deal. Brother of Veyron Ashe Vale and Shiori Dragonheart.</p>
+                        <p>His playstyle revolves around being in front of an enemy's face and delivering fast strikes that all do major damage, slowly charging up his rage to conjure more powerful abilities.</p>
+                    
+                    </div>
+
+                    <div class="sub-panel" data-sub="shiori">
+                        <h4>Shiori Dragonheart - The Guardian of The Heavens</h4>
+                        <p>An angel of light and secretly part demonic. She is the sister of Veyron Ashe Vale and Florian Dragonheart.</p>
+                        <p>Her playstyle revolves around heavy hits over short spans of time and taking the rest to focus on dodging and flying around the battlefield with her angelic wings, 
+                        using the essence of The Heavens to cast her enemies to the light.</p>
+                    
+                    </div>
+                `
+            },
+            {
+                id: 'mechanics',
+                label: 'Progression and Mechanics',
+                title: 'Progression and Mechanics',
+                html: `
+                    <p>Every origin includes progression layers like custom level systems, ascensions, origin-specific weapons, and special combat proficiencies.</p>
+                `
+            }
+
+
+
+        ];
+
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+
+        function showEntry(id) {
+            document.querySelectorAll('.tab-button').forEach(b =>
+                b.classList.toggle('active', b.dataset.id === id));
+            document.querySelectorAll('.tab-content').forEach(p =>
+                p.classList.toggle('active', p.dataset.id === id));
+        }
+
+        entries.forEach((entry) => {
+            const btn = document.createElement('button');
+            btn.className = 'tab-button';
+            btn.textContent = entry.label;
+            btn.dataset.id = entry.id;
+            btn.addEventListener('click', () => showEntry(entry.id));
+            sidebar.appendChild(btn);
+
+            const panel = document.createElement('div');
+            panel.className = 'tab-content';
+            panel.dataset.id = entry.id;
+            panel.innerHTML = `<h2>${entry.title}</h2>${entry.html}`;
+            content.appendChild(panel);
+        });
+
+        if (entries.length) showEntry(entries[0].id);
+
+        const categories = [
+            { cls: 'void-text',        words: ['Veyron', 'Void', 'Voidwalker', 'Void Essence'] },
+            { cls: 'dragonheart-text', words: ['Dragonheart', 'Florian', 'Wrath', 'wrath'] },
+            { cls: 'angelic-text',     words: ['Shiori', 'Angel', 'Heaven', 'Heavens', 'heavens', 'angel'] },
+            { cls: 'demonic-text',     words: ['Varelt', 'Vale', 'Blood', 'Unholy', 'unholy', 'blood', 'Ashe', 'Demon', 'Demonic', 'demonic'] },
+            { cls: 'nightmare-text',   words: ['Nightmare', 'nightmare', 'Catastrophe', 'catastrophe', 'Benjamin Saiph', 'Decay', 'decay'] },
+            { cls: 'nature-text',      words: ['Deity of Nature', 'Nature', 'Natures', 'Siphon'] }
+        ];
+
+        content.addEventListener('click', e => {
+            const btn = e.target.closest('.sub-tab-button');
+            if (!btn) return;
+
+            const page = btn.closest('.tab-content');
+            const target = btn.dataset.sub;
+
+            page.querySelectorAll('.sub-tab-button').forEach(b =>
+                b.classList.toggle('active', b === btn));
+            page.querySelectorAll('.sub-panel').forEach(p => 
+                p.classList.toggle('active', p.dataset.sub === target));
+        });
+
+        const lookup = new Map();
+        categories.forEach(c => c.words.forEach(w => lookup.set(w, c.cls)));
+
+        const escapeRegex = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const words = [...lookup.keys()]
+            .sort((a, b) => b.length - a.length)
+            .map(escapeRegex);
+        const wordRegex = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
+
+        document.querySelectorAll('#sidebar, #content').forEach(root => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+            textNodes.forEach(node => {
+                const parts = node.nodeValue.split(wordRegex);
+                if (parts.length === 1) return;
+
+                const frag = document.createDocumentFragment();
+                parts.forEach((part, i) => {
+                    if (!part) return;
+                    if (i % 2 === 1) {
+                        const span = document.createElement('span');
+                        span.className = lookup.get(part);
+                        span.textContent = part;
+                        frag.appendChild(span);
+                    } else {
+                        frag.appendChild(document.createTextNode(part));
+                    }
+                });
+                node.replaceWith(frag);
+            });
+        });
+    </script>
 </body>
 </html>
