@@ -51,10 +51,11 @@
 		text-shadow: 0 0 15px rgba(225, 0, 0, 0.8);
 	}
 
-	.nightmare-text {
-		color: black;
-		font-weight: bold;
-	}
+    .nightmare-text {
+        color: black;
+        font-weight: bold;
+        text-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
+    }
 
 	.nature-text {
 		color: green;
@@ -222,44 +223,181 @@
                     <img class="origin-preview-img" src="./Images/Origins.jpeg" width="100" height="100" alt="Origins Orb">
                     <p>Ready to look into the origings and learn all the lore? All the custom entries reside right here and will explore on the origin lore, abilities, resources, passives and more!:</p>
                     <a class="wiki-link" href="origins.html">Explore Origins Wiki</a>
-                `
-            },
+                  `
+                },
             {
                 id: 'origins',
                 label: 'The Origins',
                 title: 'The Origins',
                 html: `
-                    <h3>This will contain all the origins and short lore, more lore is inside of the origins wiki provided in the overview tab.</h3>
+                    <h3>This will contain all the lore of the origins and how they came to be inside of this mysterious..'Minecraft' world.</h3>
 
                     <div class="sub-tabs">
-                        <button class="sub-tab-button active" data-sub="veyron">Veyron Ashe Vale</button>
-                        <button class="sub-tab-button" data-sub="florian">Florian Dragonheart</button>
-                        <button class="sub-tab-button" data-sub="shiori">Shiori Dragonheart</button>
+                        <button class="sub-tab-button active" data-sub="siblings">The Siblings of The Void</button>
+                        <button class="sub-tab-button" data-sub="outlaws">The Outlaws</button>
+                        <button class="sub-tab-button" data-sub="old-legends">The Old Legends</button>
                         </div>
 
-                    <div class="sub-panel active" data-sub="veyron">
-                        <h4>Veyron Ashe Vale - The Voided One</h4>
-                        <p>A being of pure Void Essence and a being apart of the Dragonhearts family. Brother of Florian Dragonheart and Shiori Dragonheart.</p>
-                        <p>His playstyle revolves around careful casting of abilities to not decay quickly and die and also lifesteal enemies to maintain high health. A glass cannon that 
-                        has powerful regeneration capabilities.</p>
+                    <div class="sub-panel active" data-sub="siblings">
+                            <h2>The Siblings of The Void</h2>
+                            <p>The Siblings of The Void are constructs of the omniverse that were not meant to obtain these immense powers. 
+                                They have more strength with these powers as they tie into their identity, such as Veyron being obssessed with science and darkness, resulting in him becoming a Voidwalker, 
+                                Florian being obssessed with punishing those who oppose and hurt his friends and family, and Shiori being a kind hearted woman who loves the skies and shows immense determination.
+                        
+                        <div class="sub-tabs">
+                            <button class="sub-tab-button active" data-sub="veyron">Veyron Ashe Vale</button>
+                            <button class="sub-tab-button" data-sub="florian">Florian Dragonheart</button>
+                            <button class="sub-tab-button" data-sub="shiori">Shiori Dragonheart</button>
+                            </div>
 
+                            <div class="sub-panel active" data-sub="veyron">
+                                <h2>Veyron Ashe Vale - The Voided One</h2>
+                                <p>A being of pure Void Essence and a being apart of the Dragonhearts family. Brother of Florian Dragonheart and Shiori Dragonheart.</p>
+                                <p>His playstyle revolves around careful casting of abilities to not decay quickly and die and also lifesteal enemies to maintain high health. A glass cannon that 
+                                has powerful regeneration capabilities.</p>
+                                <p>He is a master of weapons, giving him +4 damage for every weapon but prohibiting his use of shields. "Yeah no wonder why you gave him the decay nerf!"
+                                </div>
 
+                            <div class="sub-panel" data-sub="florian">
+                                <h2>Florian Dragonheart - The Sin of Wrath</h2>
+                                <p>The Sin of Wrath, a being of flames, destruction and one to make a good deal. Brother of Veyron Ashe Vale and Shiori Dragonheart.</p>
+                                <p>His playstyle revolves around being in front of an enemy's face and delivering fast strikes that all do major damage, slowly charging up his rage to conjure more powerful abilities.</p>
+                                </div>
 
+                            <div class="sub-panel" data-sub="shiori">
+                                <h2>Shiori Dragonheart - The Guardian of The Heavens</h2>
+                                <p>An angel of light and secretly part demonic. She is the sister of Veyron Ashe Vale and Florian Dragonheart.</p>
+                                <p>Her playstyle revolves around heavy hits over short spans of time and taking the rest to focus on dodging and flying around the battlefield with her angelic wings, 
+                                using the essence of The Heavens to cast her enemies to the light.</p>
+                                </div>
+                        </div>
+
+                    <div class="sub-panel" data-sub="outlaws">
+                        <h2>The Outlaws</h2>
+                        <p>A faction away from Catastrophe's control, they disobey his laws and kill anyone who opposes them for the greater good.
+                            All they wish is to be free from his control of the outside world, and see the land once more, led by the vengeful Sibling of The Void, Veyron Ashe Vale
+
+                            <div class="sub-tabs">
+                                <button class="sub-tab-button active" data-sub="varelt">Varelt Ashe Vale</button>
+                                <button class="sub-tab-button" data-sub="violet">Violet Ashe Vale</button>
+                                <button class="sub-tab-button" data-sub="benjamin-saiph">Benjamin Saiph</button>
+                                <button class="sub-tab-button" data-sub="siphon">Siphon</button>
+                                <button class="sub-tab-button" data-sub="robert">Robert</button>
+                                <button class="sub-tab-button" data-sub="irina">Irina Dragonheart</button>
+                                <button class="sub-tab-button" data-sub="twins">The Twins</button>
+                                <button class="sub-tab-button" data-sub="snow">Snow</button>
+                                <button class="sub-tab-button" data-sub="lily">Lily</button>
+                                </div>
+
+                                
+
+                                <div class="sub-panel active" data-sub="varelt">
+                                    <h2>Varelt Ashe Vale - The Goddess of Death</h2>
+                                    <p>Varelt Ashe Vale is second in command and the past leader of The Outlaws, being taken over by Veyron.
+                                        She is the wife of Veyron and the last name 'Ashe Vale' is from her bloodline of Vampires.
+
+                                    <p>Her playstyle compliments a player using Veyron Ashe Vale, as she can buff nearby players with the vampiric tag from POTV 
+                                        and also creates a temporary bleed effect on enemies that makes vampires siphon blood on hit.</p>
+                                    <p>Alone she is proficient in scythes, just like Veyron, giving +4 damage with scythes and prohibiting shields in her hands.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="violet">
+                                    <h2>Violet Ashe Vale - The Heir to the Death and Void Gods</h2>
+                                    <p>Violet Ashe Vale is the daughter of Varelt and Veyron, giving her the powers of everything they have, such as vampirism, void and nightmares.
+                                    <p>Her playstyle is very similar to Florian, her uncle. She is a fast fighter making sure the pace is never lost, and only staying back when healing is needed.</p>
+                                    <p>Violet is a bit weaker than Varelt and Veyron, so she is proficient in sickles, still carrying on the theme of death and giving +4 damage to sickles.
+                                    </div>
+
+                                <div class="sub-panel" data-sub="benjamin-saiph">
+                                    <h2>Benjamin Saiph</h2>
+                                    <p>A formal killer, a construct of nightmares and Void Essence. Evil made into truth to help The Outlaws in their quest to kill Catastrophe. 
+                                        Benamin Saiph was created by Catastrophe, made to kill Veyron. But Veyron was one step ahead and knew what was happening, was able to capture him and convert him 
+                                        using Void Essence, letting Benjamin Saiph become a construct of Nightmares and Void Essence.</p>
+                                    <p>His playstyle revolves around status effects, applying void-touched, nightmares and bleeding -- Which can also help any vampiric players.</p>
+                                    <p>Alone, he is proficient in blades. "A simple weapon is all I desire. Nothing too much, just enough to complete the job." +4 damage to all swords, retains shield usages.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="siphon">
+                                    <h2>Siphon - The Deity's Blessed</h2>
+                                    <p>Siphon is a person blessed with The Deity of Nature's power, allowing her to call upon the deity and use their powers. She originally met Veyron in the fight that shattered the original 
+                                        Outlaws, and she is thankful he was there that day, as without him?.. Who knows if they would have won against Zealot.</p>
+                                    <p>Her playstyle revolves around mainly her abilities and daggers, she can use any weapon very well but primarily daggers. She can buff her own weapons to apply effects with anything, proving 
+                                        to be a very useful asset during a fight.</p>
+                                    <p>As stated, she is proficient in daggers, allowing her to have +4 damage, but retains shield usages.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="robert">
+                                    <h2>Robert - The Weaponsmith</h2>
+                                    <p>Ever since he fell into this new land, he could not find an ounce of material worthy enough to make a gun, so he turned to bladesmithing instead.</p>
+                                    <p>His playstyle revolves around using his surroundings and extraordinary strength to pummel his enemies to death. Using his abilities he gains the ability to stun enemies and slow them down for a short time.</p>
+                                    <p>Due to him being a creator of his own weapons, he knows them best and has the best buff in the mod being +6.5 damage to every weapon in the modpack, and also giving himself +1 armor vest (2 points).</p>
+                                    <p>This was also to balance him as he is just a normal human, we needed to balance him out somehow so he gets the biggest buff out of everyone.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="irina">
+                                    <h2>Irina Dragonheart - A healer at heart</h2>
+                                    <p>Not much is known about Irina, only Florian knows much about her as they are husband and wife. Irina is a kind soul who can heal her allies nearby.</p>
+                                    <p>Her playstyle revolves around buffing allies and healing them too. By herself she can still fight very well, able to buff and heal herself too and has a powerset very 
+                                        similar to Florian.</p>
+                                    <p>Like Florian, she is proficient in any type of long weapon, excluding scythes.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="twins">
+                                    <h2>The Twins - The Son and Daughter of Flames</h2>
+                                    <p>Silas and Kamila are the son and daughter of Florian and Irina, they posses the powers of both of their parents and are capable of igniting flames out of thin air just like Florian, 
+                                        but they are primarily based around their powers, and not weapons like their parents. They are still capable of using weapons very well, but in most scenarios don't due to space, a light person and manuevurability.</p>
+                                    <p>You can become either of the twins as a single origin, they fight extremely well together and have 2 whole power sets, using abilities to heal themselves and ignite their enemies into flames, and for when needed they can 
+                                        change their healing into a decaying virus that applies many toxins and debuffs as possible!</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="snow">
+                                    <h2>Snow - The Fragmented</h2>
+                                    <p>Snow is indeed a Voidwalker, but she was nearly killed when born by the original Nightmare Strain. She obviously survived but it destroyed her powers to the point that even though she is 16 in lore when she meets Veyron, 
+                                        she can barely conjure her powers to fight him when she thought he was going to kill her.<p>
+                                    <p>She possesses the powers of the cold winds of Syct' Vean and can summon snow storms and any ice-based magic, also letting her do small heals to nearby allies, but not as powerful.<p>
+                                    <p>She is proficient in magic just like the twins, so she doesn't have any weapon uniques but can become much more powerful by leveling and casting self-buffs towards herself.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="lily">
+                                    <h2>Lily - The Deity's Blessed</h2>
+                                    <p>Another being blessed by The Deity of Nature, she has the abilities to conjure healing magic wherever she goes and can also manipulate the nearby plant life to fend off against her enemies.<p>
+                                    <p>Being a magic user, she has the unique passive of having 2 power sets.</p>
+                                    </div>
                     </div>
 
-                    <div class="sub-panel" data-sub="florian">
-                        <h4>Florian Dragonheart - The Sin of Wrath</h4>
-                        <p>The Sin of Wrath, a being of flames, destruction and one to make a good deal. Brother of Veyron Ashe Vale and Shiori Dragonheart.</p>
-                        <p>His playstyle revolves around being in front of an enemy's face and delivering fast strikes that all do major damage, slowly charging up his rage to conjure more powerful abilities.</p>
-                    
-                    </div>
+                    <div class="sub-panel" data-sub="old-legends">
+                        <h2>The Old Legends</h2>
+                        <p>Legends of the old times, where peace was appreciated, and now it's a luxury. The amount of how many Old Legends there were is unknown, but we know of 3 that are currently alive from this faction.</p>
+                        <p>This faction consists of The Deity of Nature, Catastrophe and Zealot. This was a faction of Deities and Gods, but they are now either lost to time, corrupted or dead.</p>
+                        <p>After Veyron had tried to discover the old ruins, all three of them appeared within holograms, but it was their past selves, fragments long forgotten, and one of them was an old friend that Veyron knew
+                            very personally.</p>
+                            
+                            <div class="sub-tabs">
+                                <button class="sub-tab-button active" data-sub="nature-deity">The Deity of Nature</button>
+                                <button class="sub-tab-button" data-sub="catastrophe">Catastrophe</button>
+                                <button class="sub-tab-button" data-sub="zealot">Zealot</button>
+                                </div>
 
-                    <div class="sub-panel" data-sub="shiori">
-                        <h4>Shiori Dragonheart - The Guardian of The Heavens</h4>
-                        <p>An angel of light and secretly part demonic. She is the sister of Veyron Ashe Vale and Florian Dragonheart.</p>
-                        <p>Her playstyle revolves around heavy hits over short spans of time and taking the rest to focus on dodging and flying around the battlefield with her angelic wings, 
-                        using the essence of The Heavens to cast her enemies to the light.</p>
-                    
+                                <div class="sub-panel active" data-sub="nature-deity">
+                                    <h2>The Deity of Nature - The last primordial</h2>
+                                    <p>The Deity of Nature was the oldest out of all the legends, being The Voided Gods best friend and being one of very few people whom knew his true name.</p>
+                                    <p>The Deity of Nature possesses all the powers of the ones they have blessed and more, capable of performing abilities near the level of Veyron Ashe Vale.</p>
+                                    <p>A unique feature is that The Deity of Nature does NOT have an awakening, and only gets more powerful the more plant life is nearby and also the more advancements and levels are completed.</p>
+                                    </div>
+
+                                <div class="sub-panel" data-sub="catastrophe">
+                                    <h2>Catastrophe - The Reason of it all</h2>
+                                    <p>Catastrophe was the reason for the Dragonhearts being released into the omniverse, and the primary reason that Veyron Ashe Vale went insane and was able to kill him one day once and for all.</p>
+                                    <p>Catastrophe has many unique passives when inside of the darkness and when it's night, he is also the reason Veyron has his abilities as he infected him and now Veyron is a Nightwalker, a Voidwalker x Nightmare abomination.</p>
+                                    <p>Catastrophe is proficient with magic, but due to his age and immense power, he has over 3 power sets that all have unique use cases and immense power. But due to his already immense power, he does not have an awakening.</p>
+                                    </div>
+                                
+                                <div class="sub-panel" data-sub="zealot">
+                                    <h2>Zealot - The Last Lightwalker</h2>
+                                    <p>Zealot was the last Lightwalker in existence, being part of a race of corrupted angels that used the light for evil.</p>
+                                    <p>Zealot was manipulated and twisted into becoming apart of Catastrophe's team, but once was an old legend whom was not blinded by the immense power that he had amongst people.</p>
+                                    <p>Zealot is proficient in huge blades, granting already immensely strong weapons even more power, but instead of damage, he can swing the weapons much faster!</p>
+                                    </div>
                     </div>
                 `
             },
@@ -304,10 +442,10 @@
         if (entries.length) showEntry(entries[0].id);
 
         const categories = [
-            { cls: 'void-text',        words: ['Veyron', 'Void', 'Voidwalker', 'Void Essence'] },
-            { cls: 'dragonheart-text', words: ['Dragonheart', 'Florian', 'Wrath', 'wrath'] },
-            { cls: 'angelic-text',     words: ['Shiori', 'Angel', 'Heaven', 'Heavens', 'heavens', 'angel'] },
-            { cls: 'demonic-text',     words: ['Varelt', 'Vale', 'Blood', 'Unholy', 'unholy', 'blood', 'Ashe', 'Demon', 'Demonic', 'demonic'] },
+            { cls: 'void-text',        words: ['Veyron', 'Void', 'Voidwalker', 'Void Essence', 'The Voided One', 'Violet'] },
+            { cls: 'dragonheart-text', words: ['Dragonheart', 'Florian', 'Wrath', 'wrath', 'Kamila', 'Silas', 'Irina', 'The Twins'] },
+            { cls: 'angelic-text',     words: ['Shiori', 'Angel', 'Heaven', 'Heavens', 'Lightwalker', 'Zealot'] },
+            { cls: 'demonic-text',     words: ['Varelt', 'Vale', 'Blood', 'Unholy', 'unholy', 'blood', 'Ashe', 'Demon', 'Demonic', 'demonic', 'Death'] },
             { cls: 'nightmare-text',   words: ['Nightmare', 'nightmare', 'Catastrophe', 'catastrophe', 'Benjamin Saiph', 'Decay', 'decay'] },
             { cls: 'nature-text',      words: ['Deity of Nature', 'Nature', 'Natures', 'Siphon'] }
         ];
@@ -316,14 +454,15 @@
             const btn = e.target.closest('.sub-tab-button');
             if (!btn) return;
 
-            const page = btn.closest('.tab-content');
-            const target = btn.dataset.sub;
+            const bar = btn.parentElement;
+            const scope = bar.parentElement;
 
-            page.querySelectorAll('.sub-tab-button').forEach(b =>
+            bar.querySelectorAll(':scope > .sub-tab-button').forEach(b =>
                 b.classList.toggle('active', b === btn));
-            page.querySelectorAll('.sub-panel').forEach(p => 
-                p.classList.toggle('active', p.dataset.sub === target));
-        });
+
+            scope.querySelectorAll(':scope > .sub-panel').forEach(p =>
+                p.classList.toggle('active', p.dataset.sub === btn.dataset.sub));
+            });
 
         const lookup = new Map();
         categories.forEach(c => c.words.forEach(w => lookup.set(w, c.cls)));
