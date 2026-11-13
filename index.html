@@ -4,213 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Powers of The Void</title>
-    <style>
-        	html, body {
-		background: black;
-		color: white;
-		margin: 0;
-		padding: 0;
-		font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-	}
-
-	header {
-		text-align: center;
-		padding: 30px 20px;
-		background: linear-gradient(180deg, #181124 0%, #0d0a12 100%);
-		border-bottom: 1px solid #321f47;
-	}
-
-	h1 {
-		margin: 0;
-		font-size: 2.5rem;
-		letter-spacing: 1px;
-		text-shadow: 0 0 10px rgba(147, 51, 234, 0.3);
-	}
-
-	.void-text {
-		color: purple;
-		font-weight: bold;
-		text-shadow: 0 0 15px rgba(168, 85, 247, 0.6);
-	}
-
-	.dragonheart-text {
-		color: orangered;
-		font-weight: bold;
-		text-shadow: 0 0 15px rgba(225, 59, 15, 0.8);
-	}
-
-	.angelic-text {
-		color: white;
-		font-weight: bold;
-		text-shadow: 0 0 15px rgba(255, 255, 255, 0.8);
-	}
-
-	.demonic-text {
-		color: red;
-		font-weight: bold;
-		text-shadow: 0 0 15px rgba(225, 0, 0, 0.8);
-	}
-
-    .nightmare-text {
-        color: black;
-        font-weight: bold;
-        text-shadow: 0 0 6px rgba(168, 85, 247, 0.5);
-    }
-
-	.nature-text {
-		color: green;
-		font-weight: bold;
-		text-shadow: 0 0 15px rgb(0, 255, 0);
-	}
-
-	.wiki-container {
-		display: flex;
-		max-width: 1200px;
-		margin: 40px auto;
-		background: #130f1c;
-		border: 1px solid #2d223c;
-		border-radius: 8px;
-		overflow: hidden;
-		box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-	}
-
-	.sidebar {
-		display: flex;
-		flex-direction: column;
-		width: 220px;
-		background: #181225;
-		border-right: 1px solid #2d223c;
-	}
-
-    .sub-tabs {
-        display: flex;
-        gap: 8px;
-        margin: 24px 0 16px;
-        flex-wrap: wrap;
-    }
-    
-    .sub-tab-button {
-        background: #1a1326;
-        color: #9a8fa8;
-        border: 1px solid #3b2a54;
-        padding: 8px 16px;
-        border-radius: 6px;
-        font: inherit;
-        cursor: pointer;
-        transition: all 0.2s ease;
-    }
-
-    .sub-tab-button:hover {
-        color: #e0dced;
-        border-color: #a855f7;
-    }
-
-    .sub-tab-button.active {
-        background: #2a1b40;
-        color: #c084fc;
-        border-color: #a855f7;
-    }
-
-    .sub-panel {
-        display: none;
-    }
-
-    .sub-panel.active {
-        display: block;
-    }
-
-    .level-table {
-        width: 100%;
-        border-collapse: collapse;
-        margin: 12px 0 20px;
-        font-size: 0.95em;
-    }
-
-    .level-table th,
-    .level-table td {
-        border-bottom: 1px solid #2d223c;
-        padding: 8px 10px;
-        text-align: left;
-    }
-
-    .level-table th {
-        color: #c084fc;
-    }
-
-    .diff-up { color: #6fcf97; }
-    .diff-down {color: #eb5757; }
-
-	.tab-button {
-		display: block;
-		width: 100%;
-		box-sizing: border-box;
-		padding: 18px 20px;
-		background: none;
-		border: none;
-		border-bottom: 1px solid #231a33;
-		color: #9a8fa8;
-		font: inherit;
-		font-weight: 600;
-		text-align: left;
-		cursor: pointer;
-		transition: all 0.3s ease;
-	}
-
-	.tab-button:hover {
-		background: #231a34;
-		color: #e0dced;
-		padding-left: 25px;
-	}
-
-	.tab-button.active {
-		background: #2a1b40;
-		color: #c084fc;
-		border-left: 4px solid #a855f7;
-		padding-left: 25px;
-	}
-
-	.tab-content {
-		display: none;
-		flex: 1;
-		padding: 40px;
-		line-height: 1.6;
-	}
-
-	.tab-content.active {
-		display: block;
-	}
-
-	h2 {
-		color: white;
-		margin-top: 0;
-		border-bottom: 1px solid #3b2a54;
-		padding-bottom: 10px;
-	}
-
-    .wiki-link {
-        display: inline-block;
-        margin-top: 15px;
-        padding: 10px 20px;
-        background: #a855f7;
-        color: white;
-        text-decoration: none;
-        border-radius: 4px;
-        font-weight: bold;
-        transition: background 0.2s;
-    }
-    </style>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <header>
-        <h1>Welcome to the wiki of <span class="void-text">Powers of The Void!</span></h1>
+    <header class="top-nav">
+        <div class="logo">Welcome to the wiki of <span class="void-text">Powers of The Void!</span></div>
+
+        <div class="search-wrapper">
+            <form id="wiki-search-form" class="search-form">
+                <input type="text" id="wiki=search-input" placeholder="Search wiki" autocomplete="off" required>
+                <button type="submit">Search</button>
+            </form>
+            <div id="wiki-search-results" class="search-results" hidden></div>
+        </div>
     </header>
 
     <div class="wiki-container">
         <div class="sidebar" id="sidebar"></div>
         <div id="content"></div>
     </div>
-    <script>
+    <script src="search.js">
         // This is where the intro wiki resides.
         const entries =[
             {
@@ -405,6 +219,8 @@
                 title: 'Progression and Mechanics',
                 html: `
                     <p>Every origin includes progression layers like custom level systems, ascensions, origin-specific weapons, and special combat proficiencies.</p>
+                    <a class="wiki-link" href="ascensions.html">Ascensions</a>
+                    <a class="wiki-link" href="resources.html">Resources</a>
                 `
             }
 
@@ -495,6 +311,106 @@
                 node.replaceWith(frag);
             });
         });
+
+        const WIKI_PAGES = [
+            { title: 'Home', url: 'index.html' },
+            { title: 'Ascensions', url: 'ascensions.html' },
+            { title: 'Origins', url: 'origins.html' },
+            { title: 'Resources', url: 'resources.html' }
+        ];
+
+        let cachedPages = null;
+
+        async function loadWikiIndex () {
+            if (cachedPages) return cachedPages;
+
+            const parser = new DOMParser();
+            cachedPages = await Promise.all(
+                WIKI_PAGES.map(async (page) => {
+                    try {
+                        const respone = await fetch(page.url);
+                        const html = await response.text();
+                        const doc = parser.parseFromString(html, 'text/html');
+          
+          doc.querySelectorAll('script, style, header').forEach(el => el.remove());
+          
+          const pageTitle = doc.querySelector('title')?.innerText.trim() || page.title;
+          const bodyText = doc.body.innerText.replace(/\s+/g, ' ').trim();
+          
+          return { title: pageTitle, url: page.url, text: bodyText };
+        } catch (err) {
+          return { title: page.title, url: page.url, text: '' };
+        }
+      })
+    );
+
+    return cachedPages;
+  }
+
+  const form = document.getElementById('wiki-search-form');
+  const input = document.getElementById('wiki-search-input');
+  const resultsBox = document.getElementById('wiki-search-results');
+
+  async function performSearch(query) {
+    const cleanQuery = query.trim().toLowerCase();
+    if (!cleanQuery) {
+      resultsBox.hidden = true;
+      return;
+    }
+
+    resultsBox.hidden = false;
+    resultsBox.innerHTML = '<div class="search-empty">Searching...</div>';
+
+    const pages = await loadWikiIndex();
+    const matches = [];
+
+    for (const page of pages) {
+      const lowerText = page.text.toLowerCase();
+      const lowerTitle = page.title.toLowerCase();
+      const matchIndex = lowerText.indexOf(cleanQuery);
+
+      if (lowerTitle.includes(cleanQuery) || matchIndex !== -1) {
+        let snippet = '';
+        if (matchIndex !== -1) {
+          const start = Math.max(0, matchIndex - 40);
+          const end = Math.min(page.text.length, matchIndex + cleanQuery.length + 60);
+          snippet = (start > 0 ? '...' : '') + page.text.slice(start, end) + (end < page.text.length ? '...' : '');
+        } else {
+          snippet = page.text.slice(0, 90) + '...';
+        }
+
+        matches.push({ title: page.title, url: page.url, snippet });
+      }
+    }
+
+    if (matches.length === 0) {
+      resultsBox.innerHTML = `<div class="search-empty">No results found for "${query}"</div>`;
+      return;
+    }
+
+    resultsBox.innerHTML = matches.map(match => `
+      <a href="${match.url}" class="search-result-item">
+        <div class="search-result-title">${match.title}</div>
+        <div class="search-result-snippet">${match.snippet}</div>
+      </a>
+    `).join('');
+  }
+
+  form.addEventListener('submit', (e) => {
+    e.preventDefault();
+    performSearch(input.value);
+  });
+
+  input.addEventListener('input', () => {
+    performSearch(input.value);
+  });
+
+  document.addEventListener('click', (e) => {
+    if (!e.target.closest('.search-wrapper')) {
+      resultsBox.hidden = true;
+    }
+  });
+
     </script>
 </body>
 </html>

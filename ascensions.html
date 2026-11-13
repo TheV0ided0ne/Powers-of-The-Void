@@ -1,1 +1,144 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Ascensions</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Ascension System</h1>
+        </header>
+        <div class="wiki-container">
+            <div class="sidebar" id="sidebar"></div>
+            <div id="content"></div>
+        </div>
+        <script>
+            const entries =[
+                {
+                    id: 'basics',
+                    label: 'The Basics',
+                    title: 'The Basics',
+                    html: `
+                        <p>Ascensions are a unique system exclusive to only SOME origins. The main reason for this is due to balancing,
+                            otherwise some origins would be way too powerful.</p>
+                        <h3>What origins have an awakening?</h3>
+                        <lu>
+                            <li>The Voided One</li>
+                            <li>Florian Dragonheart</li>
+                            <li>Shiori Dragonheart</li>
+                            <li>Violet</li>
+                            <li>The Twins</li>
+                            <li>Irina Dragonheart</li>
+                            <li>Siphon</li>
+                            <li>Varelt Ashe Vale</li>
+                            <li>Snow</li>
+                            <li>Lily</li>
+                        </lu>
+                        <h3>Unique 'Awakenings'</h3>
+                        <lu>
+                            <li>Robert - Upgrade System</li>
+                            <p>Robert includes a unique upgrading system which makes his abilities stronger over time, in other words, every ability has their own 
+                                individual level that you must do unique things to unlock</p>
+                        <lu>
+
+                        <h3>The ones whom do not have an awakening due to reasons are:</h3>
+                        <lu>
+                            <li>Benjamin Saiph - Unstable parasite, incapable of canonically awakening</li>
+                            <li>The Deity of Nature - Balancing, but also is a deity</li>
+                            <li>Catastrophe - Balancing</li>
+                            <li>Zealot - Balancing</li>
+                        </lu>
+                        <a class="wiki-link" href="index.html">Return to original page</a>
+                    `
+                }
+            ];
+
+        const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+
+        function showEntry(id) {
+            document.querySelectorAll('.tab-button').forEach(b =>
+                b.classList.toggle('active', b.dataset.id === id));
+            document.querySelectorAll('.tab-content').forEach(p =>
+                p.classList.toggle('active', p.dataset.id === id));
+        }
+
+        entries.forEach((entry) => {
+            const btn = document.createElement('button');
+            btn.className = 'tab-button';
+            btn.textContent = entry.label;
+            btn.dataset.id = entry.id;
+            btn.addEventListener('click', () => showEntry(entry.id));
+            sidebar.appendChild(btn);
+
+            const panel = document.createElement('div');
+            panel.className = 'tab-content';
+            panel.dataset.id = entry.id;
+            panel.innerHTML = `<h2>${entry.title}</h2>${entry.html}`;
+            content.appendChild(panel);
+        });
+
+        if (entries.length) showEntry(entries[0].id);
+
+         const categories = [
+            { cls: 'void-text',        words: ['Veyron', 'Void', 'Voidwalker', 'Void Essence', 'The Voided One', 'Violet'] },
+            { cls: 'dragonheart-text', words: ['Dragonheart', 'Florian', 'Wrath', 'wrath', 'Kamila', 'Silas', 'Irina', 'The Twins'] },
+            { cls: 'angelic-text',     words: ['Shiori', 'Angel', 'Heaven', 'Heavens', 'Lightwalker', 'Zealot'] },
+            { cls: 'demonic-text',     words: ['Varelt', 'Vale', 'Blood', 'Unholy', 'unholy', 'blood', 'Ashe', 'Demon', 'Demonic', 'demonic', 'Death'] },
+            { cls: 'nightmare-text',   words: ['Nightmare', 'nightmare', 'Catastrophe', 'catastrophe', 'Benjamin Saiph', 'Decay', 'decay'] },
+            { cls: 'nature-text',      words: ['Deity of Nature', 'Nature', 'Natures', 'Siphon'] }
+        ];
+
+        content.addEventListener('click', e => {
+            const btn = e.target.closest('.sub-tab-button');
+            if (!btn) return;
+
+            const bar = btn.parentElement;
+            const scope = bar.parentElement;
+
+            bar.querySelectorAll(':scope > .sub-tab-button').forEach(b =>
+                b.classList.toggle('active', b === btn));
+
+            scope.querySelectorAll(':scope > .sub-panel').forEach(p =>
+                p.classList.toggle('active', p.dataset.sub === btn.dataset.sub));
+            });
+
+        const lookup = new Map();
+        categories.forEach(c => c.words.forEach(w => lookup.set(w, c.cls)));
+
+        const escapeRegex = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const words = [...lookup.keys()]
+            .sort((a, b) => b.length - a.length)
+            .map(escapeRegex);
+        const wordRegex = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
+
+        document.querySelectorAll('#sidebar, #content').forEach(root => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+            textNodes.forEach(node => {
+                const parts = node.nodeValue.split(wordRegex);
+                if (parts.length === 1) return;
+
+                const frag = document.createDocumentFragment();
+                parts.forEach((part, i) => {
+                    if (!part) return;
+                    if (i % 2 === 1) {
+                        const span = document.createElement('span');
+                        span.className = lookup.get(part);
+                        span.textContent = part;
+                        frag.appendChild(span);
+                    } else {
+                        frag.appendChild(document.createTextNode(part));
+                    }
+                });
+                node.replaceWith(frag);
+            });
+        });
+
+        </script>
+    </body>
+</html>

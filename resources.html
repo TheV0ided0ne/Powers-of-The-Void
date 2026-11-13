@@ -1,1 +1,146 @@
 <!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Resources</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <header>
+            <h1>Resources</h1>
+        </header>
+        <div class="wiki-container">
+            <div class="sidebar" id="sidebar"></div>
+            <div id="content"></div>
+        </div>
+        <script>
+            const entries =[
+                {
+                    id: 'resources',
+                    label: 'Resources',
+                    title: 'Resources',
+                    html: `
+                        <p>Resources are everywhere inside of the origins, but there are some unique interactions, universal ones and dedicated ones to a certain species.</p>
+                        <lu>
+                            <p>Every resource listed are:</p>
+                            <li>Void Essence</li>
+                            <p>Dedicated to The Voided One, Violet Ashe Vale, 
+                            <li>Decay</li>
+                            <li>Malware Infection</li>
+                            <li>Blood</li>
+                            <li>Stun</li>
+                            <li>
+                    `
+                },
+                {
+                    id: 'interactions',
+                    label: 'Interactions',
+                    title: 'Interactions',
+                    html: `
+                        <p>Unique interactions can appear with all origins regarding some resources, mainly Decay, Stun and Malware Infection.</p>
+                        <p>Here are the unique effects with all resources:</p>
+                        <lu>
+                            <li>Decay:</li>
+                            <p>Decay can be applied to all origins, but only when someone with <span class="nightmare-text">decaying</span> abilities, mainly Benjamin Saiph, Catastrophe and The Voided One. 
+                                When decay is applied to someone, that origin, no matter who it is except for The Voided One whose decay is different and Benhamin Saiph and Catastrophe as they are immune, will 
+                                have negative effects applied to them, being at 50 and 100 decay respectfully.</p>
+                            <p>50: -3 Armor Points, Slowness and Weakness 1</p>
+                            <p>100: -5 Armor Points, Slowness 2 and Weakness 1</p>
+                            <li>Stun:</li>
+                            <p>Stun is a universal resources applied to every origin except for The Voided One. Stun can hinder someones abilities for half a second and then reduce the resource to 0 instantly after that, 
+                                acting as a way to get through someones defense.</p>
+                            <li>Malware Infection:</li>
+                            <p>Living malware can exist inside of the world, infecting people that aren't immune to it, and the ones who are immune are The Voided One and Glitch.
+                                Malware Infection damages people over time depending on how much infection you have. It degrades over time but persists if you keep moving and using abilities.</p>
+                        </lu>
+                    `
+                }
+            ];
+
+             const sidebar = document.getElementById('sidebar');
+        const content = document.getElementById('content');
+
+        function showEntry(id) {
+            document.querySelectorAll('.tab-button').forEach(b =>
+                b.classList.toggle('active', b.dataset.id === id));
+            document.querySelectorAll('.tab-content').forEach(p =>
+                p.classList.toggle('active', p.dataset.id === id));
+        }
+
+        entries.forEach((entry) => {
+            const btn = document.createElement('button');
+            btn.className = 'tab-button';
+            btn.textContent = entry.label;
+            btn.dataset.id = entry.id;
+            btn.addEventListener('click', () => showEntry(entry.id));
+            sidebar.appendChild(btn);
+
+            const panel = document.createElement('div');
+            panel.className = 'tab-content';
+            panel.dataset.id = entry.id;
+            panel.innerHTML = `<h2>${entry.title}</h2>${entry.html}`;
+            content.appendChild(panel);
+        });
+
+        if (entries.length) showEntry(entries[0].id);
+
+        const categories = [
+            { cls: 'void-text',        words: ['Veyron', 'Void', 'Voidwalker', 'Void Essence', 'The Voided One', 'Violet'] },
+            { cls: 'dragonheart-text', words: ['Dragonheart', 'Florian', 'Wrath', 'wrath', 'Kamila', 'Silas', 'Irina', 'The Twins'] },
+            { cls: 'angelic-text',     words: ['Shiori', 'Angel', 'Heaven', 'Heavens', 'Lightwalker', 'Zealot'] },
+            { cls: 'demonic-text',     words: ['Varelt', 'Vale', 'Blood', 'Unholy', 'unholy', 'blood', 'Ashe', 'Demon', 'Demonic', 'demonic', 'Death'] },
+            { cls: 'nightmare-text',   words: ['Nightmare', 'nightmare', 'Catastrophe', 'catastrophe', 'Benjamin Saiph', 'Decay', 'decay'] },
+            { cls: 'nature-text',      words: ['Deity of Nature', 'Nature', 'Natures', 'Siphon'] }
+        ];
+
+        content.addEventListener('click', e => {
+            const btn = e.target.closest('.sub-tab-button');
+            if (!btn) return;
+
+            const bar = btn.parentElement;
+            const scope = bar.parentElement;
+
+            bar.querySelectorAll(':scope > .sub-tab-button').forEach(b =>
+                b.classList.toggle('active', b === btn));
+
+            scope.querySelectorAll(':scope > .sub-panel').forEach(p =>
+                p.classList.toggle('active', p.dataset.sub === btn.dataset.sub));
+            });
+
+        const lookup = new Map();
+        categories.forEach(c => c.words.forEach(w => lookup.set(w, c.cls)));
+
+        const escapeRegex = s => s.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+        const words = [...lookup.keys()]
+            .sort((a, b) => b.length - a.length)
+            .map(escapeRegex);
+        const wordRegex = new RegExp(`\\b(${words.join('|')})\\b`, 'g');
+
+        document.querySelectorAll('#sidebar, #content').forEach(root => {
+            const walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT);
+            const textNodes = [];
+            while (walker.nextNode()) textNodes.push(walker.currentNode);
+
+            textNodes.forEach(node => {
+                const parts = node.nodeValue.split(wordRegex);
+                if (parts.length === 1) return;
+
+                const frag = document.createDocumentFragment();
+                parts.forEach((part, i) => {
+                    if (!part) return;
+                    if (i % 2 === 1) {
+                        const span = document.createElement('span');
+                        span.className = lookup.get(part);
+                        span.textContent = part;
+                        frag.appendChild(span);
+                    } else {
+                        frag.appendChild(document.createTextNode(part));
+                    }
+                });
+                node.replaceWith(frag);
+            });
+        });
+        </script>
+    </body>
+</html>
